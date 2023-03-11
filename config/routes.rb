@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     #:sessions => 'users/sessions'   
   #} 
   
+
   #サインアップページ「/users/sign_up」でエラーが発生した場合、「/users」にリダイレクトされてしまいます。
   #そのまま登録するとルーティングエラーが表示されます。
   #これを回避するために、「devise_scope :users」以下の記述を追記して、任意のルーティングをさせています。
