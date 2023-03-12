@@ -13,9 +13,9 @@
 
   <body>
 
-<header class="header">
+  <header class="header">
       <div class="header__bar">
-        <h1><a href="http://localhost:3000/">
+        <h1><a href="http://localhost:3000">
         <img class="header_logo" src="https://rails-02-sample.herokuapp.com/assets/common/logo.png" alt="Potepan Share"></a></h1>
 
         <!-- もし既にサインインしていた場合-->
@@ -34,10 +34,11 @@
 
         <% end %>
       </div>
-</header>
+  </header>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
