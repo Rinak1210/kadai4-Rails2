@@ -1,14 +1,10 @@
 Rails.application.routes.draw do
-  
-  get 'users/show'
-  #get 'home/index'
-  #get 'users/index'
+  resources :users, only: [:account]
 
-  #Userモデルを認証用に使う
-  devise_for :users#, :controllers => {
-    #:registrations => 'users/registrations',
-    #:sessions => 'users/sessions'   
-  #} 
+  # ログイン、アカウント編集後、任意のページに推移させるための記述
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  #:sessions => 'users/sessions'}
+get "users/show" => "users#show"
   
 
   #サインアップページ「/users/sign_up」でエラーが発生した場合、「/users」にリダイレクトされてしまいます。

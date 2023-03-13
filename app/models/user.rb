@@ -15,4 +15,6 @@ class User < ApplicationRecord
   validates :encrypted_password, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
   validates :reset_password_token, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
        
+
+  
 end

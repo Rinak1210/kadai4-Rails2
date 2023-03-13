@@ -4,10 +4,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
-  #ログインしていない場合にログインページにリダイレクトさせるヘルパーメソッド
-  #ログインしていなければアクションを動かすことなくログインページが表示されるようする
-  before_action :authenticate_user!
+  protected
+  # アカウント編集する際にパスワード無しで編集可能に
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
+  protected
+  # アカウント編集後、プロフィール画面に移動する
+  def after_update_path_for(resource)
+    user_path(id: current_user.id)
+  end
+
+#会員登録後のリダイレクト先をユーザのプロフィール画面に変更
+# ルートパス名でも良い
+def after_sign_up_path_for(resource)
+  "/user/#{current_user.id}"
+end
 
   # GET /resource/sign_up
   # def new
@@ -62,15 +75,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 #def detail
   #@user = User.find_by(id: params[:id])
 #end
-
-# protected
-
-#会員登録後のリダイレクト先をユーザのプロフィール画面に変更
-# ルートパス名でも良い
-# The path used after sign up.
-def after_sign_up_path_for(resource)
-  "/user/#{current_user.id}"
-end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

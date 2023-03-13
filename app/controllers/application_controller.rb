@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # ログイン済ユーザーのみにアクセスを許可する
+  # application_controller.rbに設定することで、
+  # どのページでもログインしていないとログインページに飛ばされるようになります
   before_action :authenticate_user!
 
   # deviseコントローラーにストロングパラメータを追加する 
