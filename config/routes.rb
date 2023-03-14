@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :users do
+    get 'profiles/show'
+  end
+  namespace :users do
     get 'accounts/show'
   end
   #resources :users, only: [:account]
