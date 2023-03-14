@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_08_104727) do
+ActiveRecord::Schema.define(version: 2023_03_14_162134) do
+
+  create_table "reservations", force: :cascade do |t|
+    t.string "image"
+    t.date "checkin_date"
+    t.date "checkout_date"
+    t.string "name_of_hotel"
+    t.integer "number_of_people"
+    t.integer "length_of_stay"
+    t.integer "amount_of_money"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -18,7 +30,7 @@ ActiveRecord::Schema.define(version: 2023_03_08_104727) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "name", null: false
+    t.string "name"
     t.string "image"
     t.text "profile"
     t.datetime "created_at", precision: 6, null: false
