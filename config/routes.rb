@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :users, only: [:account]
+  namespace :users do
+    get 'accounts/show'
+  end
+  #resources :users, only: [:account]
 
   # ログイン、アカウント編集後、任意のページに推移させるための記述
   devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -12,10 +15,16 @@ get "users/show" => "users#show"
   #これを回避するために、「devise_scope :users」以下の記述を追記して、任意のルーティングをさせています。
   devise_scope :user do
     get "/users", to: redirect("/users/sign_up")
-    #get "user/:id", :to => "users/registrations#detail"
-    #get "signup", :to => "users/registrations#new"
-    #get "login", :to => "users/sessions#new"
-    #get "logout", :to => "users/sessions#destroy"
+  end
+
+  namespace 'users' do
+    resource :account, only: :show
+    resource :profile, only: :show
+  end
+
+  resources :reservations
+  resources :rooms do
+    get :own, on: :collection
   end
 
   #resources :users
