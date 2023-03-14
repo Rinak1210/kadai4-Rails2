@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reservations/index'
   namespace :users do
     get 'profiles/show'
   end
@@ -25,6 +26,7 @@ get "users/show" => "users#show"
     resource :profile, only: :show
   end
 
+  get "reservations/confirm" => "reservations#show"
   resources :reservations
   resources :rooms do
     get :own, on: :collection
