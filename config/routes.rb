@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'rooms/index'
   get 'reservations/index'
   namespace :users do
     get 'profiles/show'
