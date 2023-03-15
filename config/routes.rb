@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-  get 'rooms/index'
-  get 'reservations/index'
-  namespace :users do
-    get 'profiles/show'
-  end
-  namespace :users do
-    get 'accounts/show'
-  end
-  #resources :users, only: [:account]
 
   # ログイン、アカウント編集後、任意のページに推移させるための記述
   devise_for :users, controllers: { registrations: 'users/registrations' }
@@ -29,6 +20,7 @@ get "users/show" => "users#show"
 
   get "reservations/confirm" => "reservations#show"
   resources :reservations
+
   resources :rooms do
     get :own, on: :collection
   end
