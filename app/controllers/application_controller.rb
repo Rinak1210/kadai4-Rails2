@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # ログイン済ユーザーのみにアクセスを許可する
   # application_controller.rbに設定することで、
   # どのページでもログインしていないとログインページに飛ばされるようになります
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   # deviseコントローラーにストロングパラメータを追加する 
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -20,10 +20,10 @@ class ApplicationController < ActionController::Base
   end
 
   # ログイン後のリダイレクト先を指定
-  def after_sign_in_path_for(resource)
-    root_path
+  #def after_sign_in_path_for(resource)
+    
     #"/user/#{current_user.id}"
-  end
+  #end
 
 end
 

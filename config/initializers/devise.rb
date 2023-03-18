@@ -9,6 +9,7 @@ Devise.setup do |config|
   
   config.case_insensitive_keys = [:email]
   config.authentication_keys = [:name]
+  
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
@@ -260,4 +261,5 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
 end

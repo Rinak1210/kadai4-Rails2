@@ -1,2 +1,24 @@
-<h1>Users::Accounts#show</h1>
-<p><%= p "これはアカウントのページです。あとで編集予定。" %></p>
+<h1>設定</h1>
+<%= stylesheet_link_tag "users", :media => "all" %>
+
+<div class ="UserContainer">
+  <ul class="SideNav">
+    <li class ="SideNav_account"><%= link_to "アカウント",:users_account %>
+    </li>
+    <li class ="SideNav_profile"><%= link_to "プロフィール",:users_profile %>
+    </li>
+  </ul>
+
+  <div class ="AccountInformation">
+    <div class ="AccountInformation_header">
+      <h3>アカウント</h3>
+      <h3 class ="AccountInformation_edit"><%= link_to "編集", :users_edit %></h3>
+    </div>
+  </div>
+
+<div class ="AccountInformation_input-group">
+<p>メールアドレス</p>
+<p>パスワード</p>
+</div>
+
+</div>
