@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   
-  get 'accounts/edit'
   # ログイン、アカウント編集後、任意のページに推移させるための記述
   devise_for :users#, controllers: { registrations: 'users/registrations' }
   #:sessions => 'users/sessions'}
-get "users/show" => "users#show"
-get "users/edit" => "accounts#edit"
-get "users/profile/edit" => "profiles#edit"
+  root to: "home#index"
+  get "users/show" => "users#show"
+  get "users/edit" => "accounts#edit"
+  get "users/profile/edit" => "profiles#edit"
   
 
   #サインアップページ「/users/sign_up」でエラーが発生した場合、「/users」にリダイレクトされてしまいます。
@@ -15,9 +15,7 @@ get "users/profile/edit" => "profiles#edit"
   devise_scope :user do
     get "/users", to: redirect("/users/sign_up")
   end
-
   
-
   namespace 'users' do
     resource :account, only: :show
     resource :profile, only: :show
@@ -30,6 +28,4 @@ get "users/profile/edit" => "profiles#edit"
     get :own, on: :collection
   end
 
-  #resources :users
-  root to: "home#index"
 end
