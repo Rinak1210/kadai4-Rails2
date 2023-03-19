@@ -19,11 +19,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile])
   end
 
-  # ログイン後のリダイレクト先を指定
-  #def after_sign_in_path_for(resource)
-    
-    #"/user/#{current_user.id}"
-  #end
+  #ログイン後のリダイレクト先をホーム画面に指定
+  def after_sign_in_path_for(resource)
+    root_path
+  end
 
 end
 
