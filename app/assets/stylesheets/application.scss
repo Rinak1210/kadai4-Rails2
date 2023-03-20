@@ -18,6 +18,71 @@
   margin-left:20px;
 }
 
+/*既にサインインしていた場合        */
+.gnavi__list {
+  list-style: none;
+}
+
+.gnavi__list a {
+  text-decoration: none;
+}
+
+.dropdown__lists {
+  display: none;/*デフォルトでは非表示の状態にしておく*/
+  width: 100%;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  list-style: none;
+}
+.gnavi__list:hover .dropdown__lists {
+  display: block;/*Gナビメニューにホバーしたら表示*/
+}
+.dropdown__list {
+  background-color: #004d80;
+  height: 60px;
+  transition: all .3s;
+  position: relative;
+}
+
+.dropdown__list:not(:first-child)::before{
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #3492d1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.dropdown__list:hover {
+  background-color: #003558;
+}
+.dropdown__list a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+.dropdown__list a::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  transform: rotate(135deg);
+  position: absolute;
+  right: 15px;
+  top: calc(50% - 5px);
+}
+
+
+
+
+/*まだサインインしていない場合       */
 .login  {
   color:white;
   font-size: 12px;

@@ -3,22 +3,22 @@
 
 <div class ="UserContainer">
   <ul class="SideNav">
-    <li class ="SideNav_account"><%= link_to "アカウント",:users_account %>
+    <li class ="SideNav_account"><a><%= link_to "アカウント",:users_account %></a>
     </li>
-    <li class ="SideNav_profile"><%= link_to "プロフィール",:users_profile %>
+    <li class ="SideNav_profile"><a><%= link_to "プロフィール",:users_profile %></a>
     </li>
   </ul>
 
   <div class ="AccountInformation">
     <div class ="AccountInformation_header">
       <h3>アカウント</h3>
-      <h3 class ="AccountInformation_edit"><%= link_to "編集", :users_edit %></h3>
+      <h3><%= link_to "編集", :users_edit %></h3>
     </div>
   </div>
+
+</div>
 
 <div class ="AccountInformation_input-group">
 <p>メールアドレス</p>
 <p>パスワード</p>
-</div>
-
 </div>

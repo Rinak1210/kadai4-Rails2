@@ -2,7 +2,21 @@
 
 .SideNav {
   border: 1px solid #c9d0d7;
-  width: 336px;
+  width: 200px;
+  text-align: center;
+  padding:10px;
+}
+
+.SideNav_account {
+  border-bottom: 1px solid #dfe2e6;
+}
+
+.SideNav_account a {
+  text-decoration: none;
+}
+
+.SideNav_profile a {
+  text-decoration: none;
 }
 
 ul {
@@ -17,18 +31,19 @@ ul {
   justify-content: space-between;
 }
 
-.AccountInformation__header {
+.AccountInformation_header {
   align-items: center;
   border-bottom: 1px solid #dfe2e6;
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 24px;
   padding-bottom: 8px;
+  display: inline-flex;
+  justify-content: space-between;
 }
 
-.AccountInformation__input-group {
-  align-items: center;
-  display: block;
+
+
+.AccountInformation_input-group {
+  text-align: center;
   margin-bottom: 24px;
 }
 

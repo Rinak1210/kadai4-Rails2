@@ -13,28 +13,7 @@
 
   <body>
 
-  <header class="header">
-      <div class="header__bar">
-        <h1><a href="http://localhost:3000">
-        <img class="header_logo" src="https://rails-02-sample.herokuapp.com/assets/common/logo.png" alt="Potepan Share"></a></h1>
-
-        <!-- もし既にサインインしていた場合-->
-        <% if user_signed_in? %>
-          <div class="user_logout">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <a class="post" href="/posts/new">投稿する</a>
-          </div>
-
-        <!-- まだサインインしていない場合-->
-        <% else %>
-          <div class="user_resigter">
-            <%= link_to "ログイン", new_user_session_path, class: 'login' %>
-            <%= link_to "新規登録", new_user_registration_path, class: 'register_new' %>
-          </div>
-
-        <% end %>
-      </div>
-  </header>
+ <%= render "shared/partial" %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
