@@ -56,3 +56,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+
+#ImageMagickの機能をRubyで扱えるようにしてくれるGem
+gem 'mini_magick'
+
+#MiniMagickでは提供できない、画像サイズを調整する機能を提供するGem
+gem 'image_processing', '~> 1.2'

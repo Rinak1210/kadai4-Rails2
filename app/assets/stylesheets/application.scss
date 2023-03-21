@@ -38,6 +38,11 @@
 .gnavi__list:hover .dropdown__lists {
   display: block;/*Gナビメニューにホバーしたら表示*/
 }
+
+.header_menu {
+  color:white;
+  margin-left:20px;
+}
 .dropdown__list {
   background-color: #004d80;
   height: 60px;
@@ -101,6 +106,7 @@
 .user_resigter {
   margin-right: 20px;
 }
+
 
 .FirstView {
   background-image: url(https://rails-02-sample.herokuapp.com/assets/home/cover-lg.jpg);
