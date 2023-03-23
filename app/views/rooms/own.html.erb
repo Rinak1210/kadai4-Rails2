@@ -1,1 +1,30 @@
-<p><%= p "登録済み一覧のページです。あとで編集予定。" %></p>
+<h3>登録済み一覧</h3>
+
+<% if flash[:success] %>
+  <p class="success"><%= flash[:success] %></p>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th>施設名</th>
+      <th>紹介文</th>
+      <th>料金</th>
+      <th>作成日</th>
+    </tr>
+  </thead>
+  
+  <!--<tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.image %></td>
+        <td><%= room.name_of_hotel %></td>
+        <td><%= room.introduction %></td>
+        <td><%= room.price %></td>
+        <td><%= room.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>-->
+
+</table>
