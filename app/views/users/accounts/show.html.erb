@@ -12,13 +12,13 @@
   <div class ="AccountInformation">
     <div class ="AccountInformation_header">
       <h3>アカウント</h3>
-      <h3><%= link_to "編集", :users_edit %></h3>
+      <h3 class ="AccountInformation_edit"><%= link_to "編集", :users_edit %></h3>
     </div>
   </div>
 
 </div>
 
 <div class ="AccountInformation_input-group">
-<p>メールアドレス</p>
-<p>パスワード</p>
+  <p>メールアドレス: <%= current_user.email %></p>
+  <p>パスワード: *******</p>
 </div>

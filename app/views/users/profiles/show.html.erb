@@ -17,11 +17,10 @@
     </div>
   </div>
 
-<div class ="AccountInformation_input-group">
-<p>アイコン画像</p>
-<p>名前:</p><a><%= current_user.name %></a>
-<p>自己紹介</p>
-
 </div>
 
+<div class ="AccountInformation_input-group">
+    <p>アイコン画像: <$ここに画像を表示したい%= image_tag user.image %></p>
+    <p>名前: <%= current_user.name %></p>
+    <p>自己紹介: </p>
 </div>

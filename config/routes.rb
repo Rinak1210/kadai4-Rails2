@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   get "users/show" => "users#show"
   get "users/edit" => "accounts#edit"
-  get "users/profile/edit" => "users#edit"
+  get "users/profile/edit" => "profiles#edit"
   
 
   #サインアップページ「/users/sign_up」でエラーが発生した場合、「/users」にリダイレクトされてしまいます。
@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   end
   
   namespace 'users' do
-    resource :account, only: :show
-    resource :profile, only: :show
+    resource :account, only: [:show]
+    resource :profile, only: [:show]
   end
 
   get "reservations/confirm" => "reservations#show"

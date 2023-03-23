@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
   # 入力フォームからアカウント名情報をDBに保存するために追加
   def configure_permitted_parameters
     # サインアップ時にnameのストロングパラメータを追加
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :image])
     # アカウント編集の時にnameとprofileのストロングパラメータを追加
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile, :image])
   end
 
   #ログイン後のリダイレクト先をホーム画面に指定

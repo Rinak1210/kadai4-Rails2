@@ -62,3 +62,7 @@ gem 'mini_magick'
 
 #MiniMagickでは提供できない、画像サイズを調整する機能を提供するGem
 gem 'image_processing', '~> 1.2'
+
+
+gem 'rails-i18n'
+gem 'pry-rails'

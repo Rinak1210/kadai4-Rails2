@@ -1,12 +1,5 @@
 class UsersController < ApplicationController
 
-
-  def show
-    @user = User.find(params[:id])
-    @user = current_user
-    # current_userは現在ログインしているユーザーのこと
-  end
-
   def new
     @user = User.new
   end
@@ -15,21 +8,42 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Welcome!"
-      redirect_to @user
+      flash[:success] = "プロフィールを登録しました!"
+      redirect_to @user #マイページ
     else
       render 'new'
     end
   end
 
-  def edit
+  def show
     #findメソッドとparamsメソッドでUserモデルから対象のユーザー情報のレコードを読込
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    if @user.update
+      flash[:success] = "プロフィールを更新しました!"
+      redirect_to @user
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+  end
+
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  #画像を削除するにはpurgeメソッド
+  user = User.find(params[:id])
+  user.image.purge
+    
 end
