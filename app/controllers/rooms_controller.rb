@@ -31,5 +31,6 @@ class RoomsController < ApplicationController
   end
 
   def own
+    @rooms=Room.all
   end
 end

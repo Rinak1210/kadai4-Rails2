@@ -12,19 +12,21 @@
       <th>紹介文</th>
       <th>料金</th>
       <th>作成日</th>
+      <th></th>
     </tr>
   </thead>
   
-  <!--<tbody>
+  <tbody>
     <% @rooms.each do |room| %>
       <tr>
         <td><%= room.image %></td>
         <td><%= room.name_of_hotel %></td>
         <td><%= room.introduction %></td>
         <td><%= room.price %></td>
-        <td><%= room.created_at %></td>
+        <td><%= room.created_at.strftime('%Y/%m/%d') %></td>
+        <td></td>
       </tr>
     <% end %>
-  </tbody>-->
+  </tbody>
 
 </table>
