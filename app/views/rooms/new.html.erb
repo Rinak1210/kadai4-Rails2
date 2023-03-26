@@ -1,6 +1,6 @@
 <h3>新規作成</h3>
 
-<%= form_with model: @room do |f| %>
+<%= form_with model: @room, local: true do |f| %>
   <table>
     <tr>
       <th><%= f.label :name_of_hotel ,"施設名" %></th>

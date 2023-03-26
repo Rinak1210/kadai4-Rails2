@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update
+    if @user.update(update_params)
       flash[:success] = "プロフィールを更新しました!"
       redirect_to @user
     else
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   end
 
   #画像を削除するにはpurgeメソッド
-  user = User.find(params[:id])
-  user.image.purge
+  #user = User.find(params[:id])
+  #user.image.purge
     
 end

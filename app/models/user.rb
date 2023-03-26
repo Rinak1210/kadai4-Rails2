@@ -1,8 +1,10 @@
 class User < ApplicationRecord
 
+  has_many :rooms, dependent: :destroy
+  has_many :reservations, dependent: :destroy
+  #has_one_attachedメソッド記載したモデル各レコードは、各1つのファイルを添付可能
   has_one_attached :image
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   

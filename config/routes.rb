@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get "users/show" => "users#show"
   get "users/edit" => "accounts#edit"
   get "users/profile/edit" => "profiles#edit"
-  
 
   #サインアップページ「/users/sign_up」でエラーが発生した場合、「/users」にリダイレクトされてしまいます。
   #そのまま登録するとルーティングエラーが表示されます。

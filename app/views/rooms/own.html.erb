@@ -19,7 +19,7 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%= room.image %></td>
+        <td><%= image_tag @room.image:image.attached? %></td>
         <td><%= room.name_of_hotel %></td>
         <td><%= room.introduction %></td>
         <td><%= room.price %></td>
