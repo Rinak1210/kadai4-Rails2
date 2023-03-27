@@ -14,7 +14,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       ## Rememberable
       t.datetime :remember_created_at
       t.string :name, null: false #空の状態での保存を防ぐ
-      t.string :image
       t.text :profile
       t.timestamps null: false
 

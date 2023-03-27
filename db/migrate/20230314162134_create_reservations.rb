@@ -1,7 +1,6 @@
 class CreateReservations < ActiveRecord::Migration[6.1]
   def change
     create_table :reservations do |t|
-      t.string :image
       t.date :checkin_date
       t.date :checkout_date
       t.string :name_of_hotel

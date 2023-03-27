@@ -8,13 +8,12 @@ class RoomsController < ApplicationController
   end
 
   def create
-    #ストロングパラメーター＝permitメソッドで保存するパラメーターの許可処理を行ったパラメーター
-    @room = Room.new(params.require(:room).permit(:image, :name_of_hotel, :introduction, :price, :created_at))
+    @room = Room.new(params.require(:room).permit(:image, :name_of_hotel, :introduction, :price, :address).merge(user_id: current_user.id))
     if @room.save
       flash[:success] = "施設が作成されました"
-      redirect_to :rooms
-      #上記は作成した施設詳細へリダイレクトに変更したい。rooms/id(数字)
+      redirect_to @room
     else
+      logger.debug @room.errors.full_messages
       render "new"
     end
   end
@@ -37,8 +36,6 @@ class RoomsController < ApplicationController
   end
 
   def own
-    #Active Storageでは、画像ファイルを親子モデルのアソシエーションとして関係付けるため、N+1問題を引き起こす可能性
-    #下記スコープで、N+1問題を回避することができます。
     @rooms=Room.all
   end
 end

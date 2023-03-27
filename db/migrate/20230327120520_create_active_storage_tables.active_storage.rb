@@ -4,9 +4,7 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
     # Use Active Record's configured type for primary and foreign keys
     primary_key_type, foreign_key_type = primary_and_foreign_key_types
 
-    #active_storage_blobs = 実施に写真などが保存されるテーブル
     create_table :active_storage_blobs, id: primary_key_type do |t|
-      
       t.string   :key,          null: false
       t.string   :filename,     null: false
       t.string   :content_type
@@ -19,9 +17,8 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
       t.index [ :key ], unique: true
     end
 
-    #active_storage_attachments = 中間テーブル
     create_table :active_storage_attachments, id: primary_key_type do |t|
-      #t.string     :name,     null: false
+      t.string     :name,     null: false
       t.references :record,   null: false, polymorphic: true, index: false, type: foreign_key_type
       t.references :blob,     null: false, type: foreign_key_type
 

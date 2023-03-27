@@ -13,14 +13,14 @@
   <div class ="AccountInformation">
     <div class ="AccountInformation_header">
       <h3>プロフィール</h3>
-      <h3 class ="AccountInformation_edit"><%= link_to "編集", :users_profile_edit %></h3>
+      <h3 class ="AccountInformation_edit"><%= link_to "編集", edit_users_profile_path %></h3>
     </div>
   </div>
 
 </div>
 
 <div class ="AccountInformation_input-group">
-    <p>アイコン画像: <$ここに画像を表示したい%= image_tag user.image %></p>
+    <p>アイコン画像: <%= current_user.image %></p>
     <p>名前: <%= current_user.name %></p>
     <p>自己紹介: </p>
 </div>
