@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 2023_03_27_120520) do
     t.date "checkin_date"
     t.date "checkout_date"
     t.integer "number_of_people"
-    t.integer "user_id_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id_id"], name: "index_rooms_on_user_id_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
