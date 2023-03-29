@@ -6,7 +6,8 @@ class CreateReservations < ActiveRecord::Migration[6.1]
       t.string :name_of_hotel
       t.integer :number_of_people
       t.integer :length_of_stay
-      t.integer :amount_of_money
+      t.integer :amount_of_price
+      t.references :room
 
       t.timestamps
     end

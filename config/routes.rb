@@ -4,9 +4,6 @@ Rails.application.routes.draw do
   devise_for :users#, controllers: { registrations: 'users/registrations' }
   #:sessions => 'users/sessions'}
   root to: "home#index"
-  #get "users/show" => "users#show"
-  #get "users/edit" => "accounts#edit"
-  #get "users/profile/edit" => "profiles#edit"
 
   #サインアップページ「/users/sign_up」でエラーが発生した場合、「/users」にリダイレクトされるのを防ぐため
   #「devise_scope :users」以下の記述を追記して、任意のルーティングをさせています。

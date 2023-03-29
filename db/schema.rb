@@ -46,9 +46,11 @@ ActiveRecord::Schema.define(version: 2023_03_27_120520) do
     t.string "name_of_hotel"
     t.integer "number_of_people"
     t.integer "length_of_stay"
-    t.integer "amount_of_money"
+    t.integer "amount_of_price"
+    t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_reservations_on_room_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -56,9 +58,6 @@ ActiveRecord::Schema.define(version: 2023_03_27_120520) do
     t.text "introduction"
     t.integer "price"
     t.text "address"
-    t.date "checkin_date"
-    t.date "checkout_date"
-    t.integer "number_of_people"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
