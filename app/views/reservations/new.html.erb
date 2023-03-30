@@ -1,0 +1,35 @@
+<h2>予約内容の確認</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>チェックイン</th>
+      <th>チェックアウト</th>
+      <th>日数</th>
+      <th>人数</th>
+      <th>お支払い金額</th>
+      <p>上記内容で正しければ「確定」ボタンを押してください。</p>
+    </tr>
+  </thead>
+  
+  <tbody>
+  <%= form_with model: @room, local: true do |f| %>
+      <tr>
+        <td><%= @checkin_date %></td>
+        <td><%= @checkout_date %></td>
+        <td><%= @length_of_stay %></td>
+        <td><%= @number_of_people %></td>
+        <td><%= @amount_of_price %></td>
+      </tr>
+
+  <div>
+    <ul>
+      <li><%= f.submit "予約を確定"%></li>
+      <li><%= link_to "キャンセル", room_path(@room) %></li>
+    </ul>
+  </div>
+  <% end %>
+  </tbody>
+  
+  
+</table>

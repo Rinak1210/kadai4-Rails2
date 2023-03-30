@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   
   # ログイン、アカウント編集後、任意のページに推移させるための記述
-  devise_for :users#, controllers: { registrations: 'users/registrations' }
-  #:sessions => 'users/sessions'}
+  devise_for :users
   root to: "home#index"
 
   #サインアップページ「/users/sign_up」でエラーが発生した場合、「/users」にリダイレクトされるのを防ぐため
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
     resource :profile, only: [:show, :edit]
   end
 
-  get "reservations/confirm" => "reservations#show"
+  get "reservations/confirm" => "reservations#new"
   resources :reservations
 
   resources :rooms do

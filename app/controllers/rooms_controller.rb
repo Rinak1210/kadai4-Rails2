@@ -28,7 +28,7 @@ class RoomsController < ApplicationController
 
   def update
     @room = Room.find(params[:id])
-    if @room.update (params.require(:room,).permit(:image, :name_of_hotel, :introduction, :price, :created_at, :address))
+    if @room.update (params.require(:room).permit(:image, :name_of_hotel, :introduction, :price, :created_at, :address))
       flash[:notice] = "「#{@room.name_of_hotel}」の情報を更新しました"
     redirect_to @room
     else

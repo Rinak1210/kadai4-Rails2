@@ -21,7 +21,7 @@
   </div>
 
   <%= form_with url: new_reservation_path, method: 'get' do |f| %>
-  <% hidden_field_tag :room_id, @room.id %>
+  <%= hidden_field_tag :room_id, @room.id %>
   <table>
     <tr>
       <th><%= f.label :checkin_date, "チェックイン", class: "control-label" %></th>
