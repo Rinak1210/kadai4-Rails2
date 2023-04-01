@@ -2,30 +2,29 @@ class ReservationsController < ApplicationController
   
   #予約済み一覧
   def index
+    @reservations=Reservation.all
   end
-
   #予約直前の内容の確認
   def new
     @room = Room.find(params[:room_id])#登録されたルームidを探し出す
     @checkin_date = params[:checkin_date]
     @checkout_date = params[:checkout_date]
-    @length_of_stay = @checkout_date.to_i - @checkin_date.to_i #ここを調べておく！
+    @length_of_stay = (@checkout_date.to_date - @checkin_date.to_date).to_i
     @number_of_people = params[:number_of_people]
-    @amount_of_price = @length_of_stay * @room.price
+    @amount_of_price = @length_of_stay.to_i * @room.price.to_i * @number_of_people.to_i
   end
 
   def create #予約確定ボタン先
-    @reservation = current_user.reservations.new(params.require(:reservation).permit(:room_id, :checkin_date, :checkout_date,:number_of_people))
+    @reservation = current_user.reservations.new(params.require(:reservation).permit(:room_id, :checkin_date, :checkout_date, :number_of_people, :length_of_stay, :amount_of_price))
     if @reservation.save
-      flash[:success] = "施設が作成されました"
-      redirect_to @reservation
+      flash[:success] = "予約を完了しました"
+      redirect_to reservations_path
     else
-      render new_reservation
+      render new_reservation_path
     end
   end
-  end
 
-  def show  
+  def show 
   end
 
   def edit
@@ -36,4 +35,4 @@ class ReservationsController < ApplicationController
 
   def destroy
   end
-
+end

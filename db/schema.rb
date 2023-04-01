@@ -48,9 +48,11 @@ ActiveRecord::Schema.define(version: 2023_03_27_120520) do
     t.integer "length_of_stay"
     t.integer "amount_of_price"
     t.integer "room_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_reservations_on_room_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|

@@ -13,7 +13,14 @@
   </thead>
   
   <tbody>
-  <%= form_with model: @room, local: true do |f| %>
+  <%= form_with model: Reservation.new, local: true do |f| %>
+    <!--createアクションpermitパラムスをhiddenでまとめて送る-->
+    <%= f.hidden_field :room_id, :value => @room.id%>
+    <%= f.hidden_field :checkin_date, :value => @checkin_date%>
+    <%= f.hidden_field :checkout_date, :value => @checkout_date%>
+    <%= f.hidden_field :length_of_stay, :value => @length_of_stay%>
+    <%= f.hidden_field :number_of_people, :value => @number_of_people%>
+    <%= f.hidden_field :amount_of_price, :value => @amount_of_price%>
       <tr>
         <td><%= @checkin_date %></td>
         <td><%= @checkout_date %></td>
@@ -25,7 +32,7 @@
   <div>
     <ul>
       <li><%= f.submit "予約を確定"%></li>
-      <li><%= link_to "キャンセル", room_path(@room) %></li>
+      <li><%= link_to "キャンセル", @room %></li>
     </ul>
   </div>
   <% end %>
