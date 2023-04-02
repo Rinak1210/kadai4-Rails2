@@ -1,4 +1,3 @@
-<!--confirmed.htmlを別途作成したためこちらは不要？-->
 <h2>予約内容の確認</h2>
 
 <table>
@@ -14,7 +13,7 @@
   </thead>
   
   <tbody>
-  <%= form_with url: confirm_reservation_path(@reservation), local: true do |f| %>
+  <%= form_with model: @reservation, local: true do |f| %>
     <!--createアクションpermitパラムスをhiddenでまとめて送る-->
     <%= f.hidden_field :room_id, :value => @room.id%>
     <%= f.hidden_field :checkin_date, :value => @checkin_date%>
@@ -33,7 +32,7 @@
   <div>
     <ul>
       <li><%= f.submit "予約を確定"%></li>
-      <li><%= link_to "キャンセル", @room %></li>
+      <li><%= link_to "キャンセル", :back %></li>
     </ul>
   </div>
   <% end %>

@@ -1,4 +1,3 @@
-<p>登録した施設の詳細ページ</p>
 
 <% if flash[:success] %>
   <p class="success"><%= flash[:success] %></p>
@@ -15,13 +14,15 @@
 
   <div class ="details_of_hotel">
     <p><%= @room.name_of_hotel %></p>
-    <p><%= @room.price %></p>
+    <p>¥<%= @room.price %>〜</p>
+    <p>★★★★★</p>
     <p><%= @room.address %></p>
     <p><%= @room.introduction %></p>
   </div>
 
-  <%= form_with url: new_reservation_path, method: 'get' do |f| %>
-  <%= hidden_field_tag :room_id, @room.id %>
+  <%= form_with url: confirm_reservation_path do |f| %>
+  <%= f.hidden_field :room_id, value:@room.id %>
+  <%= f.hidden_field :user_id, value:@user.id %>
   <table>
     <tr>
       <th><%= f.label :checkin_date, "チェックイン", class: "control-label" %></th>

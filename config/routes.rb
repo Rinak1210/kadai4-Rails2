@@ -15,8 +15,12 @@ Rails.application.routes.draw do
     resource :profile, only: [:show, :edit]
   end
 
-  get "reservations/confirm" => "reservations#new"
-  resources :reservations
+  #get "reservations/confirm" => "reservations#new"
+  resources :reservations do
+    member do
+      post "confirm", to: "reservations#confirm"
+    end
+  end
 
   resources :rooms do
     get :own, on: :collection

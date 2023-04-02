@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.image = "default-avatar.png"
     if @user.save
       log_in @user
       flash[:success] = "プロフィールを登録しました!"
