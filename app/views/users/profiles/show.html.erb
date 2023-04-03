@@ -20,7 +20,12 @@
 </div>
 
 <div class ="AccountInformation_input-group">
-    <p>アイコン画像: <%= current_user.image %></p>
+    <p>アイコン画像: 
+      <% if current_user.image.attached? %>
+        <%= image_tag current_user.image %>
+      <%else%>
+        <%= image_tag 'default-avatar.png', class:"user_icon" %>
+      <% end %></p>
     <p>名前: <%= current_user.name %></p>
     <p>自己紹介: </p>
 </div>

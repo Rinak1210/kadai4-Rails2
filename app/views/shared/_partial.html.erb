@@ -1,28 +1,41 @@
 <!-- ヘッダーパーシャル-->
 
-  <header class="header">
-      <div class="header__bar">
-        <h1><a href="http://localhost:3000">
-        <img class="header_logo" src="https://rails-02-sample.herokuapp.com/assets/common/logo.png" alt="Potepan Share"></a></h1>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://localhost:3000">
+      <img class="header_logo" src="https://rails-02-sample.herokuapp.com/assets/common/logo.png" alt="Potepan Share"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="d-flex justify-content-between">
+    <!-- もし既にサインインしていた場合-->
+      <% if user_signed_in? %>  
+        <div class="collapse navbar-collapse" id="navbarScroll">
+          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
 
-        <!-- もし既にサインインしていた場合-->
-        <% if user_signed_in? %>          
-          <div class="gnavi__wrap">
-              <ul class="gnavi__lists">
-                  <li class="gnavi__list">
-                      <a class ="header_menu">
-                      <%= image_tag 'default-avatar.png', class:"user_icon" %>
-                      <%= current_user.name %></a>
-                      <ul class="dropdown__lists">
-                          <li class="dropdown__list"><a href="/rooms/new">施設の新規登録</a></li>
-                          <li class="dropdown__list"><a href="/reservations">予約済み一覧</a></li>
-                          <li class="dropdown__list"><a href="/rooms/own">登録済み一覧</a></li>
-                          <li class="dropdown__list"><a><%= link_to "アカウント設定", users_account_path %></a></li>
-                          <li class="dropdown__list"><a><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a></li>
-                      </ul>
-                  </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= image_tag 'default-avatar.png', class:"user_icon" %>
+                <%= current_user.name %>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" href="/rooms/new">施設の新規登録</a></li>
+                <li><a class="dropdown-item" href="/reservations">予約済み一覧</a></li>
+                <li><a class="dropdown-item" href="/rooms/own">登録済み一覧</a></li>
+                <li><a class="dropdown-item" href="/users/account">アカウント設定</a></li>
+                <li class="logout"><a class="dropdown-item" >
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete%>
+                </a></li>
               </ul>
-          </div>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+</nav>
+
+
+
 
         <!-- まだサインインしていない場合-->
         <% else %>
@@ -33,4 +46,5 @@
 
         <% end %>
       </div>
+    </nav>
   </header>
