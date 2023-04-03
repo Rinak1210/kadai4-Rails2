@@ -12,18 +12,19 @@ Rails.application.routes.draw do
   
   namespace 'users' do #/users/が前にきます
     resource :account, only: [:show]
-    resource :profile, only: [:show, :edit]
+    resource :profile, only: [:show, :edit, :update]
   end
 
   #get "reservations/confirm" => "reservations#new"
   resources :reservations do
-    member do
-      post "confirm", to: "reservations#confirm"
+    collection do
+      post "confirm", to:"reservations#confirm"
     end
   end
 
   resources :rooms do
     get :own, on: :collection
+    get :search, on: :collection
   end
 
 end

@@ -19,8 +19,8 @@
     <p><%= @room.address %></p>
     <p><%= @room.introduction %></p>
   </div>
-
-  <%= form_with url: confirm_reservation_path do |f| %>
+  <!--reservations/confirmへ-->
+  <%= form_with model: @reservation, url: confirm_reservations_path(@reservation), local: true do |f| %>
   <%= f.hidden_field :room_id, value:@room.id %>
   <%= f.hidden_field :user_id, value:@user.id %>
   <table>

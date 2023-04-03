@@ -9,11 +9,11 @@
     <br>
     旅をしよう
     </h2>
-    <!--  <div class="FirstViewSearch">
-    検索機能を後ほど実装
-    </div>  -->
-
-    <h3 class ="bg-primary">aa</h3>
+    <!--検索機能を後ほど実装-->
+    <%= form_with url: search_rooms_path, method: :get, local: true do |f| %>
+    <%= f.text_field :address, :placeholder => "エリア名を入力"%>
+    <%= f.submit :search %>
+    <% end %>
 
   </section>
 

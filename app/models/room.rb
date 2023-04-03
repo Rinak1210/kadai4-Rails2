@@ -12,4 +12,5 @@ class Room < ApplicationRecord
   validates :price, presence: true
   validates :address, presence: true
 
+
 end
