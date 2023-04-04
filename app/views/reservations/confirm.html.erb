@@ -16,6 +16,7 @@
   <%= form_with model: @reservation, local: true do |f| %>
     <!--createアクションpermitパラムスをhiddenでまとめて送る-->
     <%= f.hidden_field :room_id, :value => @room.id%>
+    <%= f.hidden_field :reservation, :value => @reservation%>
     <%= f.hidden_field :checkin_date, :value => @checkin_date%>
     <%= f.hidden_field :checkout_date, :value => @checkout_date%>
     <%= f.hidden_field :length_of_stay, :value => @length_of_stay%>

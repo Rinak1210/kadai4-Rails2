@@ -7,13 +7,11 @@ class Users::ProfilesController < ApplicationController
   end
 
   def update
-    #currnt_userにattributesは
     @user = current_user
     @user.attributes
-    
     if @user.update(profile_params)
       flash[:success] = "プロフィールを更新しました!"
-      redirect_to @user
+      redirect_to users_profile_path
     else
       render :edit
     end
@@ -22,7 +20,7 @@ class Users::ProfilesController < ApplicationController
   private
 
 def profile_params
-  params.require(:resertion).permit(:image, :name, :introduction)
+  params.require(:user).permit(:image, :name, :profile)
 end
 
 end

@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-
+  before_action :check_update, only: [:update,:edit]
   def new
     @user = current_user
     @room = Room.new
@@ -19,7 +19,8 @@ class RoomsController < ApplicationController
   def show
     @user = current_user
     @room = Room.find(params[:id])
-    #カクニンチュウ@reservation = Reservation.find(params.require(:reservation).permit(:room_id, :user_id, :checkin_date, :checkout_date, :number_of_people, :length_of_stay, :amount_of_price))
+    #reservation(予約)を新規作成
+    @reservation = Reservation.new
   end
 
   def edit
@@ -45,7 +46,6 @@ class RoomsController < ApplicationController
   end
 
   def own
-    #rooms.allかroom.allか確認したい
     @rooms=current_user.rooms.all
   end
 
@@ -57,6 +57,14 @@ class RoomsController < ApplicationController
     if params[:keyword].present?
         @rooms = @rooms.where('address LIKE ?', "%#{params[:address]}%")
         @rooms = @rooms.where('name_of_hotel LIKE ? or introduction LIKE ?', "%#{params[:keyword]}%","%#{params[:keyword]}%")
+    end
+  end
+
+  private
+
+  def check_update
+    if Room.find(params[:id]).user_id != current_user.id
+      redirect_to root_path
     end
   end
 

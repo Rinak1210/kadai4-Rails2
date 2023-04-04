@@ -22,10 +22,10 @@
 <div class ="AccountInformation_input-group">
     <p>アイコン画像: 
       <% if current_user.image.attached? %>
-        <%= image_tag current_user.image %>
+        <%= image_tag current_user.image, :size => '80x60'%>
       <%else%>
         <%= image_tag 'default-avatar.png', class:"user_icon" %>
       <% end %></p>
     <p>名前: <%= current_user.name %></p>
-    <p>自己紹介: </p>
+    <p>自己紹介: <%= current_user.profile %></p>
 </div>

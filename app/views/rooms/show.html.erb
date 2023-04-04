@@ -4,12 +4,18 @@
 <% end %>
 
 <p><%= link_to "←戻る", own_rooms_path %></p>
-<p><%= link_to "編集", edit_room_path(@room.id) %></p>
+<% if current_user.id == @room.user_id %>
+  <p><%= link_to "編集", edit_room_path(@room.id) %></p>
+<% end %>
 
 <div class ="container">
 
   <div class ="image_zone">
-    <p><%= image_tag @room.image %></p>
+    <% if @room.image.attached? %>
+      <%= image_tag @room.image, :size => '120x100'%>
+    <%else%>
+      <%= image_tag 'default-room-image.png' %>
+    <% end %>
   </div>
 
   <div class ="details_of_hotel">
@@ -37,7 +43,6 @@
       <th><%= f.label :number_of_people,"人数" %></th>
       <td><%= f.text_field :number_of_people %></td>
     </tr>
-
   </table>
   <div>
     <ul>
