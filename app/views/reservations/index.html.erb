@@ -18,7 +18,13 @@
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
-        <td><%=image_tag reservation.room.image, size: '120x70' %></td>
+        <td>
+          <% if reservation.room.image .present?%>
+            <%=image_tag reservation.room.image, size: '120x70' %>
+          <%else%>
+            <%= image_tag 'default-room-image.png', size: '120x70' %>
+          <% end %>
+        </td>
         <!--下記roomの詳細へのpathは、引数としてidを渡す必要あり。(reservation.room)-->
         <td><%= link_to "#{reservation.room.name_of_hotel}", room_path(reservation.room) %></td>
         <td><%= reservation.room.introduction %></td>
