@@ -21,6 +21,13 @@
     <%= f.hidden_field :length_of_stay, :value => @length_of_stay%>
     <%= f.hidden_field :number_of_people, :value => @number_of_people%>
     <%= f.hidden_field :amount_of_price, :value => @amount_of_price%>
+    <!--createアクションpermitパラムスをhiddenでまとめて送る-->
+    <!--<%= f.hidden_field :room_id, value: @reservation.room_id %>
+    <%= f.hidden_field :checkin_date, value: @reservation.checkin_date %>
+    <%= f.hidden_field :checkout_date, value: @reservation.checkout_date %>
+    <%= f.hidden_field :length_of_stay, value: @reservation.length_of_stay %>
+    <%= f.hidden_field :number_of_people, value: @reservation.number_of_people %>
+    <%= f.hidden_field :amount_of_price, value: @reservation.amount_of_price %>-->
       <tr>
         <td><%= @checkin_date %></td>
         <td><%= @checkout_date %></td>

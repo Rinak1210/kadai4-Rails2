@@ -1,6 +1,6 @@
 <h2>再予約する</h2>
 
-<%= form_with model: @reservation, local: true do |f| %>
+<%= form_with model: @reservation,url: confirm_reservations_path, local: true do |f| %>
 <%= hidden_field_tag :reservation_id, @reservation.id %>
 
 
