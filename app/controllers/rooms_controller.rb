@@ -11,8 +11,8 @@ class RoomsController < ApplicationController
       flash[:success] = "施設が作成されました"
       redirect_to @room
     else
-      #logger.debug @room.errors.full_messages
-      render new_room
+      render new_room_path
+      flash[:alert] = "施設作成に失敗。施設画像以外は、記入必須項目です。"
     end
   end
 

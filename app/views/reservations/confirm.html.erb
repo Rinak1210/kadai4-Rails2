@@ -19,6 +19,7 @@
     
     <!--createアクションpermitパラムスをhiddenでまとめて送る-->
     <%= f.hidden_field :room_id, value: @reservation.room_id %>
+    <%= f.hidden_field :user_id, value: @reservation.user_id %>
     <%= f.hidden_field :checkin_date, value: @reservation.checkin_date %>
     <%= f.hidden_field :checkout_date, value: @reservation.checkout_date %>
     <%= f.hidden_field :length_of_stay, value: @reservation.length_of_stay %>
@@ -36,7 +37,7 @@
   <div>
     <ul>
       <li><%= f.submit "予約を確定"%></li>
-      <li><%= link_to "キャンセル", :back %></li>
+      <li><%= link_to "キャンセル", room_path(@reservation.room_id) %></li>
     </ul>
   </div>
   <% end %>
