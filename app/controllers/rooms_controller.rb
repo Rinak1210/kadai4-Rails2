@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
       redirect_to @room
     else
       render new_room_path
-      flash[:alert] = "施設作成に失敗。施設画像以外は、記入必須項目です。"
+      #flash[:alert] = "施設作成に失敗。施設画像以外は、記入必須項目です。"
     end
   end
 
@@ -34,7 +34,7 @@ class RoomsController < ApplicationController
       flash[:notice] = "「#{@room.name_of_hotel}」の情報を更新しました"
     redirect_to @room
     else
-      render edit_room
+      render :edit
     end
   end
 

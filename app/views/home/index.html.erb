@@ -1,7 +1,6 @@
 <div class ="FirstView">
 
   <section class ="container">
-
     <h2 class ="FirstView_title">
     Potepan Shareで
     <br>
@@ -14,10 +13,7 @@
     <%= f.text_field :address, :placeholder => "エリア名を入力"%>
     <%= f.submit :search %>
     <% end %>
-
   </section>
-
-
 
 </div>
 
@@ -29,7 +25,6 @@
         <th>大阪</th>
         <th>京都</th>
         <th>札幌</th>
-        
       </tr>
       <tr>
         <td><%= link_to image_tag("tokyo.jpg", :size => '300x280'), search_rooms_path(address: "東京") %></td>

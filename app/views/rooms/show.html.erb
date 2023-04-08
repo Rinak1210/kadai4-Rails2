@@ -1,3 +1,5 @@
+<%= render "shared/error", obj: @reservation %>
+
 
 <% if flash[:success] %>
   <p class="success"><%= flash[:success] %></p>
@@ -28,7 +30,7 @@
   <!--reservations/confirmへ-->
   <%= form_with model: @reservation, url: confirm_reservations_path(@reservation), local: true do |f| %>
   <%= f.hidden_field :room_id, value:@room.id %>
-  <%= f.hidden_field :user_id, value:@user.id %>
+  <%= f.hidden_field :user_id, value:current_user.id %>
   <table>
     <tr>
       <th><%= f.label :checkin_date, "チェックイン", class: "control-label" %></th>
@@ -41,7 +43,7 @@
 
     <tr>
       <th><%= f.label :number_of_people,"人数" %></th>
-      <td><%= f.text_field :number_of_people %></td>
+      <td><%= f.number_field :number_of_people, min: 1 %></td>
     </tr>
   </table>
   <div>

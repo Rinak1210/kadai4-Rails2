@@ -46,28 +46,39 @@ def confirm
   # editとnewで分岐させる(すでに作成されているreservationはroomが紐づいているので...)
   if @reservation.room.present?
     # 再予約の時はroomがすでに紐づいているので、@reservation.roomで呼び出す
-    room = @reservation.room
+    @room = @reservation.room
   else
     # 新規の時はまだ紐づく前なので、送られてきたroom_idからroomを特定する
-    room = Room.find(reservation_params[:room_id])
+    @room = Room.find(reservation_params[:room_id])
   end
 
   #@reservation.roomにそのif文で代入したroomを入れているということ
-  @reservation.room = room
+  @reservation.room = @room
 
   # edit newの共通の処理
   @reservation.checkin_date = reservation_params[:checkin_date]
   @reservation.checkout_date = reservation_params[:checkout_date]
   @reservation.number_of_people = reservation_params[:number_of_people].to_i
   # 宿泊日数の計算
-  length_of_stay = reservation_params[:checkout_date].to_date - reservation_params[:checkin_date].to_date
+  if reservation_params[:checkout_date].present? && reservation_params[:checkin_date].present?
+    @reservation.length_of_stay = reservation_params[:checkout_date].to_date - reservation_params[:checkin_date].to_date
+  end
   # 宿泊金額の合計計算
-  amount_of_price = length_of_stay.to_i * room.price.to_i * reservation_params[:number_of_people].to_i
-  @reservation.length_of_stay = length_of_stay
-  @reservation.amount_of_price = amount_of_price
+  @reservation.amount_of_price = @reservation.length_of_stay.to_i * @room.price.to_i * reservation_params[:number_of_people].to_i
+
+  #「予約確定」押下前の確認画面でバリデーションメッセージを表示するため、以下を追加
+  # reservationバリデ-ションが通らなかった時(unless)、中身のif文を実行 
+  unless @reservation.valid?
+    #id=DBが存在する＝予約編集
+    if @reservation.id.present?
+      render :edit
+    #id=DBが存在しない＝新規予約
+    else
+      render 'rooms/show'
+    end
+  end
+
 end
-
-
 
   private
 

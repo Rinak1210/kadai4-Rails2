@@ -36,18 +36,14 @@
     </div>
   </div>
 </nav>
+      <!-- まだサインインしていない場合-->
+      <% else %>
+        <div class="user_resigter">
+          <%= link_to "ログイン", new_user_session_path, class: 'login' %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'register_new' %>
+        </div>
 
-
-
-
-        <!-- まだサインインしていない場合-->
-        <% else %>
-          <div class="user_resigter">
-            <%= link_to "ログイン", new_user_session_path, class: 'login' %>
-            <%= link_to "新規登録", new_user_registration_path, class: 'register_new' %>
-          </div>
-
-        <% end %>
-      </div>
-    </nav>
-  </header>
+      <% end %>
+    </div>
+  </nav>
+</header>
