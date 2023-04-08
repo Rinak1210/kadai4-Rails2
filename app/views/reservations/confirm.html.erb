@@ -15,16 +15,17 @@
   </thead>
   
   <tbody>
-  <%= form_with model: @reservation, local: true do |f| %>
-    
-    <!--createアクションpermitパラムスをhiddenでまとめて送る-->
-    <%= f.hidden_field :room_id, value: @reservation.room_id %>
-    <%= f.hidden_field :user_id, value: @reservation.user_id %>
-    <%= f.hidden_field :checkin_date, value: @reservation.checkin_date %>
-    <%= f.hidden_field :checkout_date, value: @reservation.checkout_date %>
-    <%= f.hidden_field :length_of_stay, value: @reservation.length_of_stay %>
-    <%= f.hidden_field :number_of_people, value: @reservation.number_of_people %>
-    <%= f.hidden_field :amount_of_price, value: @reservation.amount_of_price %>
+    <%= form_with model: @reservation, local: true do |f| %>
+      
+      <!--createアクションpermitパラムスをhiddenでまとめて送る-->
+      <%= f.hidden_field :room_id, value: @reservation.room_id %>
+      <%= f.hidden_field :user_id, value: @reservation.user_id %>
+      <%= f.hidden_field :checkin_date, value: @reservation.checkin_date %>
+      <%= f.hidden_field :checkout_date, value: @reservation.checkout_date %>
+      <%= f.hidden_field :length_of_stay, value: @reservation.length_of_stay %>
+      <%= f.hidden_field :number_of_people, value: @reservation.number_of_people %>
+      <%= f.hidden_field :amount_of_price, value: @reservation.amount_of_price %>
+
       <tr>
         <td><%= @reservation.checkin_date %></td>
         <td><%= @reservation.checkout_date %></td>
@@ -33,15 +34,13 @@
         <td><%= @reservation.amount_of_price %></td>
       </tr>
 
-
-  <div>
-    <ul>
-      <li><%= f.submit "予約を確定"%></li>
-      <li><%= link_to "キャンセル", room_path(@reservation.room_id) %></li>
-    </ul>
-  </div>
-  <% end %>
-  </tbody>
-  
-  
+      <div>
+        <ul>
+          <li><%= f.submit "予約を確定"%></li>
+          <li><%= link_to "キャンセル", room_path(@reservation.room_id) %></li>
+        </ul>
+      </div>
+      
+    <% end %>
+  </tbody> 
 </table>

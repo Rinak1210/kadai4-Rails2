@@ -3,29 +3,29 @@
 <h2>施設情報の編集</h2>
 
 <%= form_with model: @room do |f| %>
-    <table>
+  <table>
     <tr>
-      <th><%= f.label :name_of_hotel ,"施設名" %></th>
+      <th><%= f.label :name_of_hotel, "施設名" %></th>
       <td><%= f.text_field :name_of_hotel %></td>
     </tr>
 
     <tr>
-      <th><%= f.label :introduction ,"施設詳細" %></th>
+      <th><%= f.label :introduction, "施設詳細" %></th>
       <td><%= f.text_area :introduction %></td>
     </tr>
 
     <tr>
-      <th><%= f.label :price ,"料金" %></th>
+      <th><%= f.label :price, "料金" %></th>
       <td><%= f.text_field :price %></td>
     </tr>
 
     <tr>
-      <th><%= f.label :address ,"住所" %></th>
+      <th><%= f.label :address, "住所" %></th>
       <td><%= f.text_field :address %></td>
     </tr>
 
     <tr>
-      <th><%= f.label :image ,"施設画像" %></th>
+      <th><%= f.label :image, "施設画像" %></th>
       <td><%= f.file_field :image, autofocus: true %></td>
     </tr>
 

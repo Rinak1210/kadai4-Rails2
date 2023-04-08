@@ -1,6 +1,5 @@
 <%= render "shared/error", obj: @reservation %>
 
-
 <% if flash[:success] %>
   <p class="success"><%= flash[:success] %></p>
 <% end %>
@@ -27,30 +26,35 @@
     <p><%= @room.address %></p>
     <p><%= @room.introduction %></p>
   </div>
+
   <!--reservations/confirmへ-->
   <%= form_with model: @reservation, url: confirm_reservations_path(@reservation), local: true do |f| %>
-  <%= f.hidden_field :room_id, value:@room.id %>
-  <%= f.hidden_field :user_id, value:current_user.id %>
-  <table>
-    <tr>
-      <th><%= f.label :checkin_date, "チェックイン", class: "control-label" %></th>
-      <td><%= f.date_field :checkin_date, class: "form-control" %></td>
-    </tr>
-    <tr>
-      <th><%= f.label :checkout_date, "チェックアウト", class: "control-label" %></th>
-      <td><%= f.date_field :checkout_date, class: "form-control" %></td>
-    </tr>
 
-    <tr>
-      <th><%= f.label :number_of_people,"人数" %></th>
-      <td><%= f.number_field :number_of_people, min: 1 %></td>
-    </tr>
-  </table>
-  <div>
-    <ul>
-      <li><%= f.submit "予約する"%></li>
-    </ul>
-  </div>
+    <%= f.hidden_field :room_id, value:@room.id %>
+    <%= f.hidden_field :user_id, value:current_user.id %>
+
+      <table>
+        <tr>
+          <th><%= f.label :checkin_date, "チェックイン", class: "control-label" %></th>
+          <td><%= f.date_field :checkin_date, class: "form-control" %></td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :checkout_date, "チェックアウト", class: "control-label" %></th>
+          <td><%= f.date_field :checkout_date, class: "form-control" %></td>
+        </tr>
+
+        <tr>
+          <th><%= f.label :number_of_people, "人数" %></th>
+          <td><%= f.number_field :number_of_people, min: 1 %></td>
+        </tr>
+      </table>
+
+      <div>
+        <ul>
+          <li><%= f.submit "予約する"%></li>
+        </ul>
+      </div>
   <% end %>
 
 </div>

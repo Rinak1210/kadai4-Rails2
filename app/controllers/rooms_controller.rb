@@ -1,5 +1,7 @@
 class RoomsController < ApplicationController
+
   before_action :check_update, only: [:update,:edit]
+  
   def new
     @user = current_user
     @room = Room.new

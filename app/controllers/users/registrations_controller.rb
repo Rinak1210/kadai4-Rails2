@@ -16,11 +16,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     user_path(id: current_user.id)
   end
 
-#会員登録後のリダイレクト先をユーザのプロフィール画面に変更
-# ルートパス名でも良い
-def after_sign_up_path_for(resource)
-  "/user/#{current_user.id}"
-end
+  #会員登録後のリダイレクト先をユーザのプロフィール画面に変更
+  # ルートパス名でも良い
+  def after_sign_up_path_for(resource)
+    "/user/#{current_user.id}"
+  end
 
   # GET /resource/sign_up
   # def new

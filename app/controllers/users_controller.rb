@@ -42,9 +42,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
-
-  #画像を削除するにはpurgeメソッド
-  #user = User.find(params[:id])
-  #user.image.purge
     
 end

@@ -4,9 +4,11 @@
   <%= f.text_field :keyword, :placeholder => "キーワード名を入力"%>
   <%= f.submit :search %>
 <% end %>
+
 <a><%= "#{@rooms.count}件が見つかりました。" %></a>
-<table>
-      <table class="table">
+
+<table class="table">
+
   <thead>
     <tr>
       <th scope="col">画像</th>
@@ -23,9 +25,9 @@
       <tr>
         <td>
           <% if room.image.attached? %>
-            <%= image_tag room.image,size: "120x70"%>
+            <%= image_tag room.image, size: "120x70"%>
           <%else%>
-            <%= image_tag 'default-room-image.png' ,size: "120x70"%>
+            <%= image_tag 'default-room-image.png', size: "120x70"%>
           <% end %>
         </td>
         <td><%= link_to "#{room.name_of_hotel}", [room] %></td>
@@ -36,4 +38,5 @@
       </tr>
     <% end %>
   </tbody>
+
 </table>

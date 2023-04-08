@@ -5,8 +5,7 @@ class User < ApplicationRecord
   #has_one_attachedメソッド記載したモデル各レコードは、各1つのファイルを添付可能
   has_one_attached :image
 
-  devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   
   #正規表現によって、特定の文字を弾くようにしております。
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

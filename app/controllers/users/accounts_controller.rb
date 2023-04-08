@@ -14,4 +14,5 @@ class Users::AccountsController < ApplicationController
       render :edit
     end
   end
+  
 end
